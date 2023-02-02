@@ -30,9 +30,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 🧮 Math Magicans
+# BookStore
 
-In this project, I am using React to create a calculator app.
+In this project, I am using React to create a bookstore app.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -45,7 +45,7 @@ In this project, I am using React to create a calculator app.
 
 ### Key Features <a name="key-features"></a>
 
-- Routing between pages on the Client Side.
+- build all book components
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -54,7 +54,7 @@ In this project, I am using React to create a calculator app.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [🧮 Math Magicans](https://math-magicians-dy6w.onrender.com)
+- [BookStore](#)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +75,7 @@ Git should be installed on your local machine to clone it using HTTP or SSH. Oth
 
 You can clone this project by using the command below
 
-Command : git clone git@github.com:SabiMantock/math-magicians.git
+Command : git clone git@github.com:SabiMantock/bookstore.git
 
 ### Run project <a name="run-tests"></a>
 
@@ -113,7 +113,7 @@ You may also see any lint errors in the console.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Create a calculator
+- Create a books
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
