@@ -33,7 +33,7 @@ const books = (state = initialState, { type, payload }) => {
     case REMOVE_BOOK_ITEM:
       return {
         ...state,
-        books: [...state.books.filter((book) => book.id !== payload)],
+        books: state.books.filter((book) => book.id !== payload),
       };
     default:
       return state;
