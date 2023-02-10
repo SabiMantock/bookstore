@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
@@ -8,16 +8,33 @@ import { addBookItem } from '../../redux/books/books';
 const Form = () => {
   const dispatch = useDispatch();
 
+  const [inputState, setInputState] = useState({
+    title: '',
+    author: '',
+  });
+
   const handleAddBook = (e) => {
     e.preventDefault();
     dispatch(addBookItem(
       {
-        item_id: 'item4',
-        title: 'Anna Karenina',
-        author: 'Leo Tolstoy',
+        item_id: Math.random(),
+        title: inputState.title,
+        author: inputState.author,
         category: 'Fiction',
       },
     ));
+
+    setInputState({
+      title: '',
+      author: '',
+    });
+  };
+
+  const handleOnChange = (e) => {
+    setInputState((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
   };
 
   return (
@@ -25,16 +42,16 @@ const Form = () => {
       <Input
         type="text"
         placeholder="title"
-        value="title"
+        value={inputState.title}
         name="title"
-        onChange={(e) => console.log(e.target.value)}
+        onChange={handleOnChange}
       />
       <Input
         type="text"
         placeholder="author"
-        value="author"
+        value={inputState.author}
         name="author"
-        onChange={(e) => console.log(e.target.value)}
+        onChange={handleOnChange}
       />
       <Button
         defaultProps
