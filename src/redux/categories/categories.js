@@ -1,6 +1,6 @@
 const CHECK_STATUS = 'bookstore/CHECK_STATUS';
 
-export const addBookItem = (payload) => ({
+export const checkStatus = (payload) => ({
   type: CHECK_STATUS,
   payload,
 });

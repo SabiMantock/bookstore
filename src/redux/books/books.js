@@ -12,15 +12,26 @@ export const removeBookItem = (payload) => ({
 });
 
 const initialState = {
-  books: [{
-    id: 1,
-    title: 'Eragon',
-    author: 'Christopher Paolini',
-  }, {
-    id: 2,
-    title: 'Eragon',
-    author: 'Christopher Paolini',
-  }],
+  books: [
+    {
+      item_id: 'item1',
+      title: 'The Great Gatsby',
+      author: 'John Smith',
+      category: 'Fiction',
+    },
+    {
+      item_id: 'item2',
+      title: 'Anna Karenina',
+      author: 'Leo Tolstoy',
+      category: 'Fiction',
+    },
+    {
+      item_id: 'item3',
+      title: 'The Selfish Gene',
+      author: 'Richard Dawkins',
+      category: 'Nonfiction',
+    },
+  ],
 };
 
 const books = (state = initialState, { type, payload }) => {
@@ -33,7 +44,7 @@ const books = (state = initialState, { type, payload }) => {
     case REMOVE_BOOK_ITEM:
       return {
         ...state,
-        books: state.books.filter((book) => book.id !== payload),
+        books: state.books.filter((book) => book.item_id !== payload),
       };
     default:
       return state;
