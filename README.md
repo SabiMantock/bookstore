@@ -45,9 +45,9 @@ In this project, I am using React to create a bookstore app.
 
 ### Key Features <a name="key-features"></a>
 
-- Add redux toolkit
-- Write books actions and reducer
-- Write categories actions and reducer
+- Used Bookstore Api as app backend
+- Used fetch to make API calls
+- Refactored add book and remove book features to persist changes in the server
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -115,7 +115,7 @@ You may also see any lint errors in the console.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
--initialize project with components
+- styling
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
