@@ -1,54 +1,68 @@
+import { createAsyncThunk, createReducer } from '@reduxjs/toolkit';
+import URL from '../../utils/constants';
+
 const ADD_BOOK_ITEM = 'bookstore/ADD_BOOK_ITEM';
 const REMOVE_BOOK_ITEM = 'bookstore/REMOVE_BOOK_ITEM';
+const FETCH_BOOKS = 'bookstore/books/FETCH_BOOKS';
 
-export const addBookItem = (payload) => ({
-  type: ADD_BOOK_ITEM,
-  payload,
+export const fetchBooks = createAsyncThunk(FETCH_BOOKS, async (post, { dispatch }) => {
+  const response = await fetch(URL);
+  const data = await response.json();
+  const payload = Object.keys(data).map((id) => ({
+    item_id: id,
+    title: data[id][0].title,
+    author: data[id][0].author,
+    category: data[id][0].category,
+  }));
+  dispatch({
+    type: FETCH_BOOKS,
+    payload,
+  });
+  return payload;
 });
 
-export const removeBookItem = (payload) => ({
-  type: REMOVE_BOOK_ITEM,
-  payload,
+export const addBookItem = createAsyncThunk(ADD_BOOK_ITEM, async (payload, { dispatch }) => {
+  await fetch(URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  dispatch({
+    type: ADD_BOOK_ITEM,
+    payload,
+  });
+  return payload;
+});
+
+export const removeBookItem = createAsyncThunk(REMOVE_BOOK_ITEM, async (payload, { dispatch }) => {
+  await fetch(`${URL}/${payload}`, {
+    method: 'DELETE',
+  });
+  dispatch({
+    type: REMOVE_BOOK_ITEM,
+    payload,
+  });
+  return payload;
 });
 
 const initialState = {
-  books: [
-    {
-      item_id: 'item1',
-      title: 'The Great Gatsby',
-      author: 'John Smith',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item2',
-      title: 'Anna Karenina',
-      author: 'Leo Tolstoy',
-      category: 'Fiction',
-    },
-    {
-      item_id: 'item3',
-      title: 'The Selfish Gene',
-      author: 'Richard Dawkins',
-      category: 'Nonfiction',
-    },
-  ],
+  books: [],
 };
 
-const books = (state = initialState, { type, payload }) => {
-  switch (type) {
-    case ADD_BOOK_ITEM:
-      return {
-        ...state,
-        books: [...state.books, payload],
-      };
-    case REMOVE_BOOK_ITEM:
-      return {
-        ...state,
-        books: state.books.filter((book) => book.item_id !== payload),
-      };
-    default:
-      return state;
-  }
-};
+const books = createReducer(initialState,
+  (builder) => {
+    builder.addCase(fetchBooks.fulfilled, (state, { payload }) => ({
+      ...state,
+      books: [...payload],
+    }));
+    builder.addCase(addBookItem.fulfilled, (state, { payload }) => ({
+      ...state,
+      books: [...state.books, payload],
+    }));
+    builder.addCase(removeBookItem.fulfilled, (state, { payload }) => ({
+      ...state,
+      books: state.books.filter((book) => book.item_id !== payload),
+    }));
+  });
 
 export default books;
