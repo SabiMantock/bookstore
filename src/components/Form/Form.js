@@ -40,28 +40,37 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleAddBook}>
-      <Input
-        type="text"
-        placeholder="title"
-        value={inputState.title}
-        name="title"
-        onChange={handleOnChange}
-      />
-      <Input
-        type="text"
-        placeholder="author"
-        value={inputState.author}
-        name="author"
-        onChange={handleOnChange}
-      />
-      <Button
-        defaultProps
-        title="Add Book"
-        className="btn"
-        onClick={() => 'clicked'}
-      />
-    </form>
+    <div>
+      <h2 style={{ fontSize: '20px', color: '#888', textTransform: 'uppercase' }}>Add new book</h2>
+      <form onSubmit={handleAddBook} style={{ display: 'flex', gap: '32px', marginTop: '20px' }}>
+        <div style={{ width: '50%' }}>
+          <Input
+            type="text"
+            placeholder="Book title"
+            value={inputState.title}
+            name="title"
+            onChange={handleOnChange}
+          />
+        </div>
+        <div style={{ width: '30%' }}>
+          <Input
+            type="text"
+            placeholder="Book author"
+            value={inputState.author}
+            name="author"
+            onChange={handleOnChange}
+          />
+        </div>
+        <div style={{ width: '20%' }}>
+          <Button
+            defaultProps
+            title="Add Book"
+            className="addBook"
+            onClick={() => 'clicked'}
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 
