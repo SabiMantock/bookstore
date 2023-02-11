@@ -1,0 +1,30 @@
+.btn {
+    background: transparent;
+    border: none;
+    color: #4386bf;
+    padding: 0;
+    cursor: pointer;
+}
+
+.update-btn {
+    cursor: pointer;
+    border: none;
+    background-color: #0290ff;
+    border-radius: 3px;
+    padding: 8px 24px;
+    color: #fff;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.addBook {
+    cursor: pointer;
+    border: none;
+    background-color: #0290ff;
+    border-radius: 3px;
+    padding: 12px;
+    color: #fff;
+    width: 100%;
+    height: 46px;
+    text-transform: uppercase;
+}

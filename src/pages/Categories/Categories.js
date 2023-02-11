@@ -14,7 +14,7 @@ const Categories = () => {
   };
 
   return (
-    <div>
+    <div style={{ padding: '50px' }}>
       <h2>Status</h2>
       {statusState && <p>{status}</p>}
       <Button defaultProps={false} title="Check Status" onClick={handleCheckStatus} className="status-btn" />

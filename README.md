@@ -2,8 +2,8 @@
 
 <div align="center">
 
-  <img src="math magician.png" alt="logo" width="140"  height="auto" />
-  <br/>
+  <!-- <img src="math magician.png" alt="logo" width="140"  height="auto" /> -->
+  <!-- <br/> -->
 
 </div>
 
@@ -45,9 +45,7 @@ In this project, I am using React to create a bookstore app.
 
 ### Key Features <a name="key-features"></a>
 
-- Used Bookstore Api as app backend
-- Used fetch to make API calls
-- Refactored add book and remove book features to persist changes in the server
+- Used a mix of inline styling and external styling
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
